@@ -1,6 +1,5 @@
 package com.wrightapps.smartedu.feemanagementservice.entity;
 
-import java.time.LocalDate;
 import java.util.Date;
 import java.util.UUID;
 
@@ -10,7 +9,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 
 import lombok.Data;

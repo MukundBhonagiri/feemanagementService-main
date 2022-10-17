@@ -80,7 +80,6 @@ public class FeesManagementServiceImpl implements FeesManagementService {
 
 		FeesTemplate feesTemplate = fmRepo.findByFeesId(templateVo.getFeesId());
 		for (FeePayDetails template : templateVo.getPayTerm()) {
-			log.info("template.getToPay():: " + template.getToPay() + ":: fee.getToPay():: " + feesTemplate.getToPay());
 			if (template.getToPay() != feesTemplate.getToPay()) {
 				updateStatus = "PayChange";
 			}
@@ -90,17 +89,6 @@ public class FeesManagementServiceImpl implements FeesManagementService {
 					&& templateVo.getFeesCategory().equalsIgnoreCase(feesTemplate.getFeesCategory())
 					&& templateVo.getFeesDescription().equalsIgnoreCase(feesTemplate.getFeesDescription())
 					&& templateVo.getGradeIds().equalsIgnoreCase(feesTemplate.getGradeIds()))) {
-				log.info("template.getPayFrequency():: " + template.getPayFrequency() + ":: fee.getPayFrequency():: "
-						+ feesTemplate.getPayFrequency());
-				log.info("template.getTerm():: " + template.getTerm() + ":: fee.getTerm():: " + feesTemplate.getTerm());
-				log.info("template.getDueDate():: " + template.getDueDate() + ":: fee.getDueDate():: "
-						+ feesTemplate.getDueDate());
-				log.info("template.getFeesCategory():: " + templateVo.getFeesCategory() + ":: fee.getFeesCategory():: "
-						+ feesTemplate.getFeesCategory());
-				log.info("template.getGradeIds():: " + templateVo.getGradeIds() + ":: fee.getGradeIds():: "
-						+ feesTemplate.getGradeIds());
-				log.info("template.getToPay():: " + templateVo.getNotifyBefore() + ":: fee.getToPay():: "
-						+ feesTemplate.getNotifyBefore());
 				updateStatus = "OtherChange";
 			}
 			if ("PayChange".equalsIgnoreCase(updateStatus)) {
@@ -174,7 +162,6 @@ public class FeesManagementServiceImpl implements FeesManagementService {
 		String date = convertLocalDateToDDMMMFormat(fee.getDueDate());
 		studentFeeTemplate.setAcademicYear(templateVo.getTenantId());
 		studentFeeTemplate.setFeesCategory(templateVo.getFeesCategory());
-		studentFeeTemplate.setStudentId(null);
 		studentFeeTemplate.setPaid(false);
 		studentFeeTemplate.setPaidDate(null);
 		studentFeeTemplate.setPaymentMode(null);

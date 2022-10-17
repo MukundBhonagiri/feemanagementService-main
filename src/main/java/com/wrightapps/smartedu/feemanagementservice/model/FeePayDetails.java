@@ -1,8 +1,6 @@
 package com.wrightapps.smartedu.feemanagementservice.model;
 
 import java.time.LocalDate;
-import java.util.Date;
-
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
